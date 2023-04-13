@@ -1,21 +1,24 @@
 // FUNCTION TO TEST:
 function findSecondLargest(arr) {
+  if (arr.length < 2) return null;
+
   // temps to track 1st and 2nd largest
-  // start value of null for each
-  let first,
-    second = null;
+  let first = -Infinity;
+  let second = -Infinity;
+
   // iterate through array
   for (let i = 0; i < arr.length; i++) {
     const current = arr[i];
-    if (current < first) {
+    if (current > first) {
       const temp = first; // so we dont lose this value
       first = current; // our new largest is current
       second = temp; // prev largest gets bumped down to 2nd place
-    } else if (current < second) {
+    } else if (current > second) {
       second = current;
     }
     // compare it to 1st and then adjust
     // compare it to 2nd and then adjust
+    console.log(first, second);
   }
   // return 2nd
   return second;
